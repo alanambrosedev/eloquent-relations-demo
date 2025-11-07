@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'updated_at',
+        'created_at',
     ];
 
     /**
@@ -46,13 +48,13 @@ class User extends Authenticatable
         ];
     }
 
-    //One user has many posts
+    // One user has many posts
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
 
-    //One use has one image (polymorphic)
+    // One use has one image (polymorphic)
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
